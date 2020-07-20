@@ -1,4 +1,3 @@
-import csv
 from matplotlib import pyplot
 from datetime import datetime
 from urllib import request
