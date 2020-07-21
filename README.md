@@ -1,0 +1,1 @@
+Generates graphs for covid metrics tracking. Updated twice daily. Data from The New York Times.
