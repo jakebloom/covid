@@ -3,3 +3,4 @@ inclide
 lib
 *.csv
 *.cfg
+.DS_Store

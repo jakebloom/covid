@@ -3,7 +3,7 @@ from matplotlib import pyplot
 from datetime import datetime
 from urllib import request
 
-PATH = '/tmp/covid'
+PATH = './out'
 URL = 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv'
 
 GRAPHS = [
@@ -25,7 +25,12 @@ for row in california:
   cases = row[4]
   data[county].append((date, cases))
 
-os.mkdir(PATH)
+try:
+  os.mkdir(PATH)
+except FileExistsError:
+  pass
+except e:
+  raise e
 
 for graphCounties in GRAPHS:
   pyplot.clf()
