@@ -8,8 +8,6 @@ URL = 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-countie
 
 GRAPHS = [
   ['San Francisco'],
-  ['San Mateo'],
-  ['Santa Clara'],
   ['San Francisco', 'San Mateo', 'Santa Clara'],
   ['San Francisco', 'San Mateo', 'Santa Clara', 'Los Angeles']
 ]
@@ -56,6 +54,7 @@ for graphCounties in GRAPHS:
   pyplot.xticks(xticks)
   pyplot.xlabel('Date')
   pyplot.ylabel('7 Day Average New Cases')
+  pyplot.grid(axis='y')
 
   filename = PATH + '/' + '_'.join(graphCounties).lower().replace(' ', '_') + '.png'
   pyplot.savefig(filename)
