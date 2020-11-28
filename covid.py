@@ -1,3 +1,4 @@
+import json
 import os
 from matplotlib import pyplot
 from datetime import datetime
@@ -13,6 +14,7 @@ GRAPHS = [
 ]
 res = request.urlopen(URL)
 california = [r.decode('utf-8').strip().split(',') for r in res if 'California' in r.decode('utf-8')]
+files = []
 
 data = {}
 for row in california:
@@ -46,7 +48,7 @@ for graphCounties in GRAPHS:
       for i in range(7, len(cases)):
         averageCases.append(sum(cases[i - 7:i]) / 7)
 
-      pyplot.plot(days[7:], averageCases, label=county)
+      pyplot.plot(days[7:], averageCases, label=county + " {:.2f}".format(averageCases[-1]))
 
   pyplot.legend()
   locs, _ = pyplot.xticks()
@@ -58,4 +60,7 @@ for graphCounties in GRAPHS:
 
   filename = PATH + '/' + '_'.join(graphCounties).lower().replace(' ', '_') + '.png'
   pyplot.savefig(filename)
+  files.append(filename[1:])
 
+with open(PATH + '/files.json', 'w') as f:
+  f.write(json.dumps(files))
