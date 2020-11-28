@@ -60,7 +60,7 @@ for graphCounties in GRAPHS:
 
   filename = PATH + '/' + '_'.join(graphCounties).lower().replace(' ', '_') + '.png'
   pyplot.savefig(filename)
-  files.append(filename[1:])
+  files.append(filename[2:])
 
 with open(PATH + '/files.json', 'w') as f:
   f.write(json.dumps(files))

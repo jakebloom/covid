@@ -6,6 +6,6 @@ xhr.onload = () => {
   files.forEach(f => {
     document.body.innerHTML += '<div><img src="' + f + '" class="graph" /></div>';
   });
-  document.body.innerHTML += '<p>Data from the New York Times covid tracking project. Updated twice daily.<p>'
+  document.body.innerHTML += '<p>Data from the New York Times covid tracking project. Updated twice daily.<p>';
 }
 xhr.send();
